@@ -1,8 +1,4 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
+use crate::Solution;
 
 impl Solution {
     pub fn is_anagram(s: String, t: String) -> bool {
@@ -23,7 +19,7 @@ impl Solution {
 }
 
 #[cfg(test)]
-mod test {
+mod valid_anagram_test {
     use crate::Solution;
 
     #[test]

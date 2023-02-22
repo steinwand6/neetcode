@@ -1,8 +1,4 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
+use crate::Solution;
 
 impl Solution {
     pub fn contains_duplicate(nums: Vec<i32>) -> bool {
@@ -39,7 +35,7 @@ impl Solution {
 }
 
 #[cfg(test)]
-mod test {
+mod contains_duplicate_test {
     use crate::Solution;
     #[test]
     fn test1() {

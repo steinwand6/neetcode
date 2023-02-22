@@ -1,8 +1,4 @@
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
+use crate::Solution;
 
 impl Solution {
     pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
@@ -32,7 +28,7 @@ impl Solution {
 }
 
 #[cfg(test)]
-mod test {
+mod group_anagrams_test {
     use crate::Solution;
 
     #[test]
@@ -44,7 +40,13 @@ mod test {
                 .into_iter()
                 .map(|s| str_to_string(s.into_iter().collect()))
                 .collect();
-        assert_eq!(Solution::group_anagrams(strs), expect);
+        let result = Solution::group_anagrams(strs);
+        assert_eq!(expect.len(), result.len());
+        for s in result.iter() {
+            let mut tmp = s.clone();
+            tmp.sort();
+            assert!(expect.contains(&tmp));
+        }
     }
 
     #[test]

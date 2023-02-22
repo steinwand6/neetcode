@@ -1,10 +1,6 @@
 use std::collections::HashMap;
 
-fn main() {
-    println!("Hello, world!");
-}
-
-struct Solution {}
+use crate::Solution;
 
 impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
@@ -21,7 +17,7 @@ impl Solution {
 }
 
 #[cfg(test)]
-mod test {
+mod two_sum_test {
     use crate::Solution;
 
     #[test]
