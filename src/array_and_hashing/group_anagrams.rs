@@ -2,6 +2,37 @@ use crate::Solution;
 
 impl Solution {
     pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
+        // time: O(n) ?
+        use std::collections::HashMap;
+        let mut map = HashMap::new();
+        for s in strs {
+            let mut key = [0; 26];
+            s.chars().for_each(|c| key[c as usize - 'a' as usize] += 1);
+
+            map.entry(key)
+                .and_modify(|v: &mut Vec<String>| v.push(s.to_string()))
+                .or_insert(vec![s.to_string()]);
+        }
+        map.into_iter().map(|m| m.1).collect()
+    }
+
+    #[allow(unused)]
+    // time: O(n * nlogn) ?
+    fn group_anagrams_old2(strs: Vec<String>) -> Vec<Vec<String>> {
+        use std::collections::HashMap;
+        let mut map: HashMap<Vec<char>, Vec<String>> = HashMap::new();
+        for s in strs.into_iter() {
+            let mut letters: Vec<char> = s.chars().collect();
+            letters.sort();
+            map.entry(letters)
+                .and_modify(|v| v.push(s.to_string()))
+                .or_insert(vec![s.to_string()]);
+        }
+        map.into_iter().map(|m| m.1).collect()
+    }
+
+    #[allow(unused)]
+    fn group_anagrams_old1(strs: Vec<String>) -> Vec<Vec<String>> {
         let mut answer: Vec<Vec<String>> = vec![];
         for s in strs.into_iter() {
             let mut key: Vec<char> = s.chars().collect();
