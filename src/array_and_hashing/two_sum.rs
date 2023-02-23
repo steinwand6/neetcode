@@ -17,7 +17,7 @@ impl Solution {
 }
 
 #[cfg(test)]
-mod two_sum_test {
+mod test {
     use crate::Solution;
 
     #[test]

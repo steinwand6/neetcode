@@ -35,7 +35,7 @@ impl Solution {
 }
 
 #[cfg(test)]
-mod contains_duplicate_test {
+mod test {
     use crate::Solution;
     #[test]
     fn test1() {

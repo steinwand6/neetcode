@@ -19,7 +19,7 @@ impl Solution {
 }
 
 #[cfg(test)]
-mod product_of_exept_self {
+mod test {
     use crate::Solution;
 
     #[test]

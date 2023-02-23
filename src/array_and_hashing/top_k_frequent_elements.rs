@@ -20,7 +20,7 @@ impl Solution {
 }
 
 #[cfg(test)]
-mod top_k_frequent_element {
+mod test {
     use crate::Solution;
 
     #[test]

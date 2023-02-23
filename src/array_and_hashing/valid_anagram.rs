@@ -19,7 +19,7 @@ impl Solution {
 }
 
 #[cfg(test)]
-mod valid_anagram_test {
+mod test {
     use crate::Solution;
 
     #[test]

@@ -28,7 +28,7 @@ impl Solution {
 }
 
 #[cfg(test)]
-mod group_anagrams_test {
+mod test {
     use crate::Solution;
 
     #[test]
