@@ -1,7 +1,23 @@
+use std::collections::HashSet;
+
 use crate::Solution;
 
 impl Solution {
+    // time: O(n)
+    // space: O(n)
     pub fn contains_duplicate(nums: Vec<i32>) -> bool {
+        let mut hashset = HashSet::new();
+        for n in nums.iter() {
+            if !hashset.insert(n) {
+                return true;
+            }
+        }
+        false
+    }
+    #[allow(dead_code)]
+    // time: O(nlogn)
+    // space: O(1)
+    fn contains_duplicate_old2(nums: Vec<i32>) -> bool {
         let mut nums = nums.clone();
         nums.sort();
         for (idx, x) in nums.iter().enumerate() {
@@ -20,9 +36,11 @@ impl Solution {
         }
         false
     }
-    // time limit exceeded
     #[allow(dead_code)]
-    pub fn contains_duplicate_old(nums: Vec<i32>) -> bool {
+    // time limit exceeded
+    // time: O(n^2)
+    // space: O(1)
+    fn contains_duplicate_old1(nums: Vec<i32>) -> bool {
         for (idx, x) in nums.iter().enumerate() {
             for j in nums[(idx + 1)..].iter() {
                 if x == j {
