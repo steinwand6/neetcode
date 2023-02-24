@@ -7,12 +7,7 @@ impl Solution {
     // space: O(n)
     pub fn contains_duplicate(nums: Vec<i32>) -> bool {
         let mut hashset = HashSet::new();
-        for n in nums.iter() {
-            if !hashset.insert(n) {
-                return true;
-            }
-        }
-        false
+        !nums.iter().all(|n| hashset.insert(n))
     }
     #[allow(dead_code)]
     // time: O(nlogn)
