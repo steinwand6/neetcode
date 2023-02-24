@@ -11,11 +11,11 @@ impl Solution {
         }
         let mut map_s = HashMap::new();
         let mut map_t = HashMap::new();
+        let s = s.as_bytes();
+        let t = t.as_bytes();
         for i in 0..s.len() {
-            let counter_s = map_s.entry(s.as_bytes()[i]).or_insert(0);
-            let counter_t = map_t.entry(t.as_bytes()[i]).or_insert(0);
-            *counter_s += 1;
-            *counter_t += 1;
+            map_s.entry(s[i]).and_modify(|c| *c += 1).or_insert(0);
+            map_t.entry(t[i]).and_modify(|c| *c += 1).or_insert(0);
         }
         map_s == map_t
     }
