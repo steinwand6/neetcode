@@ -1,6 +1,7 @@
 pub struct Solution {}
 
 mod array_and_hashing;
+mod stack;
 
 pub fn add(left: usize, right: usize) -> usize {
     left + right
