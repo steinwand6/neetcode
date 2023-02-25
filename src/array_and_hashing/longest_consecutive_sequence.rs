@@ -3,7 +3,7 @@ use crate::Solution;
 impl Solution {
     pub fn longest_consecutive(nums: Vec<i32>) -> i32 {
         use std::collections::HashSet;
-        use std::iter::FromIterator; // compile error on leetcode without this
+        //use std::iter::FromIterator; // compile error on leetcode without this
         let set: HashSet<i32> = HashSet::from_iter(nums.into_iter());
         let mut ans = 0;
         for &n in set.iter() {

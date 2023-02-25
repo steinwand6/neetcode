@@ -34,24 +34,33 @@ mod test {
     #[test]
     fn test1() {
         let n = 3;
-        let expect = vec!["((()))", "(()())", "(())()", "()(())", "()()()"];
-        assert_eq!(Solution::generate_parenthesis(n), expect);
+        let mut expect = vec!["((()))", "(()())", "(())()", "()(())", "()()()"];
+        let mut result = Solution::generate_parenthesis(n);
+        result.sort();
+        expect.sort();
+        assert_eq!(result, expect);
     }
 
     #[test]
     fn test2() {
         let n = 1;
-        let expect = vec!["()"];
-        assert_eq!(Solution::generate_parenthesis(n), expect);
+        let mut expect = vec!["()"];
+        let mut result = Solution::generate_parenthesis(n);
+        result.sort();
+        expect.sort();
+        assert_eq!(result, expect);
     }
 
     #[test]
     fn test3() {
         let n = 4;
-        let expect = vec![
+        let mut expect = vec![
             "(((())))", "((()()))", "((())())", "((()))()", "(()(()))", "(()()())", "(()())()",
             "(())(())", "(())()()", "()((()))", "()(()())", "()(())()", "()()(())", "()()()()",
         ];
-        assert_eq!(Solution::generate_parenthesis(n), expect);
+        let mut result = Solution::generate_parenthesis(n);
+        result.sort();
+        expect.sort();
+        assert_eq!(result, expect);
     }
 }
