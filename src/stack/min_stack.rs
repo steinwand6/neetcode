@@ -1,8 +1,7 @@
 #[allow(unused)]
 struct MinStack {
     stack: Vec<i32>,
-    min: Option<i32>,
-    size: usize,
+    mins: Vec<i32>,
 }
 
 impl MinStack {
@@ -10,31 +9,34 @@ impl MinStack {
     fn new() -> Self {
         Self {
             stack: vec![],
-            min: None,
-            size: 0,
+            mins: vec![],
         }
     }
 
     #[allow(unused)]
     fn push(&mut self, val: i32) {
-        self.size += 1;
+        if self.mins.is_empty() || *self.mins.last().unwrap() >= val {
+            self.mins.push(val);
+        }
         self.stack.push(val);
     }
 
     #[allow(unused)]
     fn pop(&mut self) {
-        self.size -= 1;
-        self.stack.pop();
+        let val = self.stack.pop();
+        if *self.mins.last().unwrap() == val.unwrap() {
+            self.mins.pop();
+        }
     }
 
     #[allow(unused)]
     fn top(&mut self) -> i32 {
-        self.stack[self.size - 1]
+        *self.stack.last().unwrap()
     }
 
     #[allow(unused)]
     fn get_min(&mut self) -> i32 {
-        *self.stack.iter().min().unwrap()
+        *self.mins.last().unwrap()
     }
 }
 
