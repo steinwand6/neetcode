@@ -4,15 +4,15 @@ use crate::Solution;
 
 impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        let mut hashmap: HashMap<i32, usize> = HashMap::new();
-        let ans: Vec<i32> = vec![];
+        let mut hashmap: HashMap<i32, usize> = HashMap::with_capacity(nums.len());
+
         for (idx, num) in nums.into_iter().enumerate() {
             if let Some(ans_1) = hashmap.get(&(target - num)) {
                 return vec![*ans_1 as i32, idx as i32];
             }
             hashmap.insert(num, idx);
         }
-        ans
+        unreachable!()
     }
 }
 
