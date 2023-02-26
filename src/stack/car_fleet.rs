@@ -5,12 +5,10 @@ impl Solution {
         let mut stack = Vec::with_capacity(position.len());
         //let mut sorted: Vec<(i32, i32)> = std::iter::zip(position, speed).collect();
         let mut sorted: Vec<(i32, i32)> = position.into_iter().zip(speed.into_iter()).collect();
-        sorted.sort_by(|v1, v2| (v2.0).cmp(&v1.0));
-        for (pos, spd) in sorted.into_iter() {
-            if stack.is_empty() {
-                stack.push((pos, spd));
-                continue;
-            }
+        //sorted.sort_by(|v1, v2| (v2.0).cmp(&v1.0));
+        sorted.sort_unstable_by_key(|f| -f.0);
+        stack.push(sorted[0]);
+        for (pos, spd) in sorted.into_iter().skip(1) {
             let (next_pos, next_spd) = stack.last().unwrap();
             let next_car_arrive_time = (target - next_pos) as f32 / (*next_spd as f32);
             let car_arrive_time = (target - pos) as f32 / spd as f32;
