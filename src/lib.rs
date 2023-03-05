@@ -1,6 +1,7 @@
 pub struct Solution {}
 
 mod array_and_hashing;
+mod binary_search;
 mod stack;
 mod two_pointers;
 
